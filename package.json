@@ -1,0 +1,20 @@
+{
+  "name": "mess-finder",
+  "version": "1.0.0",
+  "description": "Mess Finder / MessMate - Full-stack campus mess discovery and subscription platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "mess-finder",
+    "food-tech",
+    "student-mess",
+    "tiffin-subscription"
+  ],
+  "author": "Antigravity Full-Stack Team",
+  "license": "MIT",
+  "type": "commonjs"
+}

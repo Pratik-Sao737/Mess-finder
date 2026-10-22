@@ -1,0 +1,65 @@
+/* styles.css - Custom styling refinements preserving Stitch Fresh Table design */
+
+@layer base {
+  html, body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #f1fcf4;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+  body {
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+/* Custom scrollbar hiding */
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Smooth modal transitions */
+.modal-backdrop {
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-content {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tactile button active states */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Active bottom navigation styling */
+.nav-item.active {
+  color: #1a5740 !important;
+  font-weight: 700;
+}
+.nav-item.active .nav-icon-container {
+  background-color: #d4e8a7 !important;
+  color: #141f00 !important;
+  transform: scale(1.05);
+}
+
+/* Card hover lift */
+.interactive-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.interactive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(18, 61, 46, 0.1);
+}

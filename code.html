@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#f1fcf4;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-secondary-fixed": "#141f00", "primary-container": "#1a5740", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#3c4c1b", "surface-container-low": "#ebf6ee", "inverse-surface": "#28332d", "on-tertiary-fixed": "#370e00", "surface-container-highest": "#dae5dd", "on-surface-variant": "#404943", "outline": "#707973", "surface": "#f1fcf4", "error": "#ba1a1a", "surface-tint": "#2e6951", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#97d3b6", "tertiary": "#632000", "error-container": "#ffdad6", "inverse-primary": "#97d3b6", "background": "#f1fcf4", "on-background": "#141e19", "on-surface": "#141e19", "surface-dim": "#d1ddd5", "surface-variant": "#dae5dd", "primary": "#003f2b", "on-primary": "#ffffff", "on-tertiary-container": "#ffaa87", "secondary-fixed": "#d6eaa9", "on-primary-fixed-variant": "#11503a", "surface-container": "#e5f1e9", "outline-variant": "#bfc9c2", "on-tertiary-fixed-variant": "#7f2b00", "on-primary-container": "#8fcbae", "primary-fixed": "#b2f0d1", "tertiary-fixed": "#ffdbce", "inverse-on-surface": "#e8f4eb", "tertiary-fixed-dim": "#ffb598", "secondary": "#546431", "on-secondary-container": "#586934", "secondary-container": "#d4e8a7", "on-primary-fixed": "#002115", "on-tertiary": "#ffffff", "surface-bright": "#f1fcf4", "surface-container-high": "#e0ebe3", "tertiary-container": "#893000", "secondary-fixed-dim": "#bbce8f", "on-secondary": "#ffffff", "on-error": "#ffffff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "margin-lg": "2rem", "gutter": "1rem", "gutter-lg": "1.5rem", "space-md": "1rem", "margin-sm": "0.75rem", "gutter-sm": "0.75rem", "space-lg": "1.25rem", "space-xl": "1.5rem" }, fontFamily: { "label-sm": ["Inter"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "display-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-md": ["Inter"] }, fontSize: { "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "18px", "fontWeight": "600" }], "display-lg": ["36px", { "lineHeight": "44px", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "display-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "22px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "600" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs"><button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="MessMate Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS-657N_kUkHhyrZIdB9IdXcyYdXR04WgDTunCZw4PidwUGZqYV3DxuDPEAyj8zbmj4tGHffsHkWWFmAKdXEDMLlizuPMn7yLOfK8RypTJSDZ8I2HoEhPj9_C-JOz2s-M4qFxN1xaGRgA2bPyR0_dRlsTCM-Ub97B9GQ-CNgRXA1Bi7LV0X_XO1rbkqDlbHYIe-4onyxrk2AYEXreTGTVhdcyq1H-YSiC_zlXAT-j-UQwAXSLAsoEq"/><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Mess Details</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Share" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px]">share</span></button><div class="w-11 h-11 flex items-center justify-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbaJ7I5OqiTs1_g7YwUUmCGSiFSZrWFUt_pz0mrjt81rTiaa4mcVB7kD7b47XLHBnwC2j6TGlVybt2XEEQXyGaU7sBL_N3b3TOdFAPl1WO0xv5kzSg3eJ67RQwgsLLIEfTUUtjZG2-nniQRC2KuvEDKHulcYtqs-DDXj_Tk8usmoxauIM7H2aoYl0z6c7YPXfhQTxtvkYQuVr7ouztsLm4mir8IJn48FZIXIDCndRhZlOtJQNw1KI1"/></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-safe bg-surface min-h-screen"><div class="flex flex-col w-full pb-24">
+<!-- Top Gallery Carousel Preview -->
+<div class="relative w-full overflow-hidden bg-surface-container-high">
+<div class="relative w-full h-64 sm:h-72">
+<img class="w-full h-full object-cover" data-alt="A warm and inviting Indian student mess thali presentation at Annapurna Mess, featuring golden yellow dal tadka, rich orange paneer butter masala, soft puffed tawa rotis brushed with ghee, fluffy basmati rice, colorful sliced kachumber salad, and warm gulab jamun in traditional stainless steel katoris on a rustic wooden dining table. Ambient warm sunlit dining hall setting with fresh herbs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoPgvXAHH_xueNmX2jabV8-iyvSoogGIh0_VNeWGnpGmF5gzRzk-Acj6gTJ28IQnwDLTLeGH5bNAV5Pl20Z9xsW3DEm_kyq1vxgkvkaYYSHqX1NyULOwEjpuOpvc9o74KQownTind0cbcUJKmaJoGJ3G1ux1eZ1hJW6cn8yNPYOlEVTWQC6J_8HY205S0mhHOe5BwImzEN8MOuZWA-1gW7Lj-TA00hhCY1-7YSbvVe-GgviIDz4QI2"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-black/30"></div>
+<!-- Action Overlay: Favorite / Bookmark Heart & Gallery Count -->
+<div class="absolute top-3 right-3 flex items-center gap-space-xs z-10">
+<button aria-label="Save Mess" class="w-10 h-10 rounded-full bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-on-surface shadow-sm active:scale-95 transition-transform" id="heartBtn" onclick="toggleBookmark()">
+<span class="material-symbols-outlined text-[20px] transition-colors" id="heartIcon">favorite_border</span>
+</button>
+</div>
+<!-- Photo Count & Category Badges Inside Hero -->
+<div class="absolute bottom-3 left-margin right-margin flex items-center justify-between text-on-primary">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm shadow-sm backdrop-blur-md">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Verified Partner
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+            4.8 (210)
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm shadow-sm">
+<span class="material-symbols-outlined text-[14px]">health_and_safety</span>
+            FSSAI Certified
+          </span>
+</div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-inverse-surface/75 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px]">photo_camera</span>
+          1/8
+        </div>
+</div>
+</div>
+<!-- Quick Thumbnails Pill Navigation -->
+<div class="flex gap-2 p-2 px-margin overflow-x-auto bg-surface-container-low scrollbar-none">
+<div class="relative w-14 h-11 flex-shrink-0 rounded-lg overflow-hidden ring-2 ring-primary">
+<img class="w-full h-full object-cover" data-alt="Close-up of fresh aromatic dal tadka topped with sizzling jeera and red chili in a stainless steel bowl with fresh coriander leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaY4ziy-4It3Y8mQff2byx7_5mL_ruwMcc4p1fFUz6SkTDC8j7NUpWPLWPX956mTHQE_SuAHDJyjkt7I_O6NPqEXsgf1to3j9uPhGoyYSB9zIw1sYwPSJWB5KX0O2C1JkhVpsWFxO1DZTqL2czLKtmFrVSJbanSp_Fo-YZVYZEZKW8uy14808blb3Q0SF1gfwV2Z6_YS_G2xQQr-w-FTM5uaqafhPVpY7iE1gY_zM1aIDqiNjO_lq5"/>
+</div>
+<div class="relative w-14 h-11 flex-shrink-0 rounded-lg overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Clean and hygienic kitchen of Annapurna Student Mess with cooks wearing hairnets, rolling round phulkas and rotis on wide tawa." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdFV16-abNA-EOPHaqHgnO6EUA7ooWdjXmm0JjAR08SMJ3L1aVo_SozNM1y7gE4UuJQmkU-RAsVeTEnf1EMSDCwV_HsjBUHew6-4hyix6STDbi21uzbRcAbu2ZNnVQsRNyEc7rFNKck7hz-EqUR7ncSP7NpgRD7sIwb52NhCTMPuIrSv0W5cKL90l0wL7TAPW6iwq3wAZW30cW4XsuVaJUTA6v8Y5OQq8pt4UiqckWJNwEnMuSsV-e"/>
+</div>
+<div class="relative w-14 h-11 flex-shrink-0 rounded-lg overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Spacious airy student mess dining hall with tidy benches, students dining joyfully under warm lighting in campus environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATpQYD0v5Ycti5hZ0G6IHyi5_77i3f_d09bvL7RM49TKMfeZFq1Lpq_RC0svneFeXoDyGredTXXTJQ-d_Qz1BvKoTg4AKpvBNljrHRngwA2POZkFvq0-hTSj2NsmWdPImn20OSa--VbZAX5winKt858D_1ZClVgmoyPtHfH_33G78efkeUEacQSIMGGXKGbUNYIGFmv5CiYGUPTrR8I_EbrW0CoAxRq0Q-RqMgUz2i0E-n8qE6VhUz"/>
+</div>
+<div class="relative w-14 h-11 flex-shrink-0 rounded-lg overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Weekend special paneer gravy simmering with vibrant capsicum and aromatic Indian spices in a copper pan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8f2TS-BICVmCfFGwAK_HNem4O7fTOd5kd5TtLJII8rdgQ9KtlU53zzIeBNm_wUlSyUppWuQ4i1X7uLOK6GHuDmb15NfFI4QnLZbb3hfQEnDq7i49mX9NNHSfDElRyiveZIrC2SaH0866pF4F4od-L4Tj12TwGbx6SPbT0FIXnYqMUI-9xmiGX_w9LTG_gYq-vp1IclppZQ0if0ua8CzB1dIZ2myiHaA5PG5IiyhurLMyigDzCYyJN"/>
+</div>
+<div class="w-14 h-11 flex-shrink-0 rounded-lg bg-surface-container-highest flex items-center justify-center font-label-sm text-label-sm text-on-surface-variant cursor-pointer">
+        +4 More
+      </div>
+</div>
+</div>
+<!-- Main Info Card -->
+<div class="px-margin pt-space-md flex flex-col gap-space-md">
+<!-- Title & Locality -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-headline-lg">
+          Annapurna Student Mess
+        </h2>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm mt-1 whitespace-nowrap">
+          Open Now
+        </span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+<span class="truncate">Near Gate No. 3, North Campus, University Enclave</span>
+</div>
+<div class="flex items-center gap-2 font-label-md text-label-md text-secondary">
+<span>0.4 km away</span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+          5 min walk
+        </span>
+<span>•</span>
+<span class="text-on-surface-variant">Pure Veg &amp; Egg Options</span>
+</div>
+</div>
+<!-- Quick CTA Action Pills -->
+<div class="grid grid-cols-3 gap-2">
+<a class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors shadow-sm" href="tel:+919876543210">
+<span class="material-symbols-outlined text-[16px]">call</span>
+<span>Call Owner</span>
+</a>
+<button class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors shadow-sm" onclick="scrollToMap()">
+<span class="material-symbols-outlined text-[16px]">directions</span>
+<span>Directions</span>
+</button>
+<a class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-colors shadow-sm" href="https://wa.me/919876543210" target="_blank">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>WhatsApp</span>
+</a>
+</div>
+<!-- Daily Meal Schedule Pills -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">schedule</span>
+          Meal Timings
+        </h3>
+<span class="font-label-sm text-label-sm text-secondary">Kitchen Operating</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<div class="bg-surface-container-low rounded-lg p-2.5 flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">light_mode</span>
+            Breakfast
+          </div>
+<span class="font-label-md text-label-md text-on-surface mt-0.5">7:30 - 9:30 AM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Poha, Upma, Tea</span>
+</div>
+<div class="bg-primary-container text-on-primary rounded-lg p-2.5 flex flex-col gap-0.5 shadow-sm relative overflow-hidden">
+<div class="absolute -right-2 -bottom-2 text-on-primary-container opacity-20">
+<span class="material-symbols-outlined text-[36px]">restaurant</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-primary-container">
+<span class="material-symbols-outlined text-[14px]">sunny</span>
+            Lunch (Live)
+          </div>
+<span class="font-label-md text-label-md text-on-primary mt-0.5">12:30 - 2:30 PM</span>
+<span class="font-body-sm text-body-sm text-on-primary-container text-[11px] leading-tight">Full Grand Thali</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-2.5 flex flex-col gap-0.5">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">nights_stay</span>
+            Dinner
+          </div>
+<span class="font-label-md text-label-md text-on-surface mt-0.5">7:30 - 10:00 PM</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[11px] leading-tight">Light &amp; Nutritious</span>
+</div>
+</div>
+</div>
+<!-- Live Menu Spotlight Card (Today's Lunch) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></div>
+<h3 class="font-title-md text-title-md text-on-surface">Today's Live Menu</h3>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">lunch_dining</span>
+          Today's Lunch
+        </span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 mb-3">
+<div class="grid grid-cols-2 gap-2 text-on-surface">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Dal Tadka</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Slow-cooked yellow lentils</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">stars</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-tertiary-container">Paneer Butter Masala</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Chef's Special</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Tawa Roti w/ Ghee</span>
+<span class="text-secondary font-label-sm text-[11px]">Unlimited refilling</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Steamed Basmati Rice</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Fragrant long grain</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Fresh Kachumber</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Cucumber, lemon, onion</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[18px] mt-0.5">bakery_dining</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md">Gulab Jamun (1 pc)</span>
+<span class="text-on-surface-variant font-body-sm text-[12px]">Hot sweet treat</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm px-1">
+<span class="flex items-center gap-1 text-[12px]">
+<span class="material-symbols-outlined text-[15px] text-primary">eco</span>
+          Freshly prepared at 11:45 AM today
+        </span>
+<span class="font-label-sm text-label-sm text-primary">₹80 Single Thali</span>
+</div>
+</div>
+<!-- Weekly Menu Schedule Section -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Weekly Menu Schedule</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rotate flavors so you never get bored</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_month</span>
+</div>
+<!-- Day selector tabs -->
+<div class="flex gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary shrink-0 transition-colors" id="tab-Mon" onclick="selectDay('Mon')">Mon</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Tue" onclick="selectDay('Tue')">Tue</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Wed" onclick="selectDay('Wed')">Wed</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Thu" onclick="selectDay('Thu')">Thu</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Fri" onclick="selectDay('Fri')">Fri</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Sat" onclick="selectDay('Sat')">Sat</button>
+<button class="day-tab px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high shrink-0 transition-colors" id="tab-Sun" onclick="selectDay('Sun')">Sun (Feast)</button>
+</div>
+<!-- Dynamic Meal Chart Container -->
+<div class="bg-surface-container-low rounded-lg p-3 mt-2 flex flex-col gap-2.5" id="dayScheduleDisplay">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-highest/60">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sunny</span>
+            Lunch (12:30 PM - 2:30 PM)
+          </span>
+<span class="font-label-sm text-label-sm text-secondary">Unlimited Chapati</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface" id="lunchMenuText">
+          Dal Tadka, Paneer Butter Masala, Tawa Roti with Desi Ghee, Basmati Jeera Rice, Fresh Salad &amp; Gulab Jamun.
+        </p>
+<div class="flex items-center justify-between pt-2 pb-1 border-t border-surface-container-highest/60">
+<span class="font-label-md text-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">nights_stay</span>
+            Dinner (7:30 PM - 10:00 PM)
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hot Kheer</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface" id="dinnerMenuText">
+          Aloo Gobi Adraki, Mixed Dal Makhani, Phulka Rotis, Steam Rice, Curd &amp; Rice Kheer.
+        </p>
+</div>
+</div>
+<!-- Membership Plans Accordion / Card Matrix -->
+<div class="flex flex-col gap-space-sm" id="membershipSection">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">
+            Membership Plans
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Choose your dining flexibility &amp; save more</p>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">
+          Guaranteed Pure Ghee
+        </span>
+</div>
+<!-- Plan 1: Weekly Trial -->
+<div class="plan-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm cursor-pointer transition-all active:scale-[0.99]" onclick="selectPlan('weekly', 499, 'Weekly Trial Plan')">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Weekly Trial Plan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">7 Days · Lunch only (Try before subscribing)</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-headline-sm">₹499</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant text-[11px]">₹71 / day</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm border-t border-surface-container">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">check</span>
+            Full thali with sweet
+          </span>
+<span class="flex items-center gap-1 text-primary">
+            Select
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- Plan 2: Monthly Standard (Highlighted Best Value) -->
+<div class="plan-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-md ring-2 ring-primary cursor-pointer transition-all active:scale-[0.99]" onclick="selectPlan('monthly', 1799, 'Monthly Standard Plan')">
+<div class="absolute -top-3 right-4">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">local_fire_department</span>
+            Most Popular · Save ₹350
+          </span>
+</div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-headline-sm">Monthly Standard</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">30 Days · Lunch + Dinner (60 meals)</span>
+<span class="font-label-sm text-label-sm text-secondary mt-0.5">Unlimited Roti &amp; Rice Refills Included</span>
+</div>
+<div class="text-right">
+<div class="flex items-baseline gap-1 justify-end">
+<span class="line-through text-on-surface-variant font-body-sm text-[12px]">₹2,149</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-headline-lg">₹1,799</span>
+</div>
+<span class="block font-body-sm text-body-sm text-on-surface-variant text-[11px]">₹29.9 / meal</span>
+</div>
+</div>
+<!-- Per-feature checklist -->
+<div class="mt-3 pt-2.5 grid grid-cols-2 gap-2 text-on-surface font-body-sm text-body-sm border-t border-surface-container">
+<div class="flex items-center gap-1.5 text-[12px]">
+<span class="material-symbols-outlined text-primary text-[16px]">done_all</span>
+            Leave Pause Option (Up to 4 days)
+          </div>
+<div class="flex items-center gap-1.5 text-[12px]">
+<span class="material-symbols-outlined text-primary text-[16px]">done_all</span>
+            Sunday Special Sweet Treat
+          </div>
+</div>
+<div class="mt-3 flex items-center justify-between bg-primary-container/10 p-2 rounded-lg">
+<span class="font-label-sm text-label-sm text-primary">Over 140 hostel students active</span>
+<span class="inline-flex items-center text-primary font-label-md text-label-md font-semibold">
+            Choose Plan <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Plan 3: Full Semester 3-Meals Plan -->
+<div class="plan-card relative bg-surface-container-lowest rounded-xl p-space-md shadow-sm cursor-pointer transition-all active:scale-[0.99]" onclick="selectPlan('semester', 4999, 'Full Semester 3-Meals Plan')">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface">Full Semester 3-Meals</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">90 Days · Breakfast + Lunch + Dinner</span>
+<span class="font-label-sm text-label-sm text-tertiary-container mt-0.5">Maximum campus savings</span>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm text-primary font-headline-sm">₹4,999</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant text-[11px]">Full 3-month peace of mind</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm border-t border-surface-container">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">pause_circle</span>
+            Exam &amp; vacation pauses supported
+          </span>
+<span class="flex items-center gap-1 text-primary">
+            Select
+            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Facilities & Trust Highlights Bento -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+        Facilities &amp; Hygiene Standards
+      </h3>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-2.5">
+<div class="p-2 rounded-full bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-[20px]">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">RO Pure Water</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">TDS tested daily below 90</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-2.5">
+<div class="p-2 rounded-full bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-[20px]">sanitizer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Kitchen Inspected</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Grade-A monthly audits</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-2.5">
+<div class="p-2 rounded-full bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-[20px]">festival</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Weekend Feasts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Poori chole &amp; special kheer</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex items-start gap-2.5">
+<div class="p-2 rounded-full bg-surface-container-highest text-primary">
+<span class="material-symbols-outlined text-[20px]">event_busy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Leave Deductions</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Skip meals when traveling</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Student Reviews Snip -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">Hostelers' Feedback</span>
+<span class="inline-flex items-center gap-0.5 text-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            4.8
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-primary">210 Verified Reviews</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center">
+              AD
+            </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface">Aman Deep (B.Tech, 3rd Yr)</span>
+<span class="text-on-surface-variant text-[11px]">Subscribed for 6 months</span>
+</div>
+</div>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          "Best mess in North Campus hands down! The rotis are soft and piping hot, just like home. Dal tadka on Mondays is something I look forward to after lab classes."
+        </p>
+</div>
+</div>
+<!-- Location Static Map Anchor -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-2.5" id="locationAnchor">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+          Location &amp; Walking Distance
+        </h3>
+<span class="font-label-sm text-label-sm text-secondary">Gate 3 Landmark</span>
+</div>
+<div class="w-full h-40 bg-cover bg-center rounded-lg shadow-inner relative overflow-hidden" data-location="University Enclave, North Campus, New Delhi, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDUvgbtWGJakYMeJHYOzYemJPjvvlMEYeUG901jBT1kNrkdVV7ZV5XgY7o1mmSKTmISXoYvDws_7zCiKcmIfnSAOeTMGNtzM_gLd4yq6noZHXaJCYmO9XnTbGAvCA30xfnLq7Fnb6xvoFWWsceW_4xPmRP4CV00daV8THMRAJ0wAO1z8NpdZ7TFV_Oc1K5n20WJpD9Na_NB_SdI4jz0DZuSq7_BFCbjC9ER7xa3b-WESMHuK8gZ1sVx')">
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/90 backdrop-blur-sm px-2.5 py-1 rounded-md text-on-surface font-label-sm text-label-sm shadow-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">navigation</span>
+<span>400m from Science Block</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Building No. 14-B, University Enclave, Opp. Central Library Cycle Stand.
+      </p>
+</div>
+</div>
+<!-- Sticky Bottom Subscription Dock (Primary CTA in Forest Green #1A5740) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_-4px_24px_rgba(0,0,0,0.08)] px-margin py-3 border-t border-surface-container-high/50 flex items-center justify-between gap-space-md">
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Starting At</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-headline-lg" id="bottomPriceTag">₹1,799</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="bottomDurationTag">/mo</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary truncate" id="bottomPlanName">Monthly Standard (Lunch + Dinner)</span>
+</div>
+<button class="flex-shrink-0 px-6 py-3 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:bg-primary transition-all active:scale-95 flex items-center gap-2" onclick="handleSubscribeCTA()">
+<span>Subscribe</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<script>
+  let isBookmarked = false;
+  let currentSelectedPlan = {
+    name: 'Monthly Standard Plan',
+    price: 1799,
+    duration: '/mo'
+  };
+
+  const weeklySchedule = {
+    Mon: {
+      lunch: "Dal Tadka, Paneer Butter Masala, Tawa Roti with Desi Ghee, Basmati Jeera Rice, Fresh Salad & Gulab Jamun.",
+      dinner: "Aloo Gobi Adraki, Mixed Dal Makhani, Phulka Rotis, Steam Rice, Curd & Rice Kheer.",
+      special: "Unlimited Chapati"
+    },
+    Tue: {
+      lunch: "Rajma Masala (Punjabi Style), Boondi Raita, Jeera Rice, Soft Tawa Rotis, Green Salad & Achar.",
+      dinner: "Baingan Bharta, Arhar Dal Tadka, Fulkas, Rice, Papad & Shahi Tukda.",
+      special: "Special Rajma Chawal"
+    },
+    Wed: {
+      lunch: "Chole Bhature / Poori Thali, Mixed Veg Sabzi, Coriander Pulao, Curd, and Sweet Lassi Glass.",
+      dinner: "Bhindi Do Pyaza, Moong Dal Fry, Fresh Chapatis, Steamed Rice & Fruit Custard.",
+      special: "Chole Special Lunch"
+    },
+    Thu: {
+      lunch: "Kadhi Pakoda, Zeera Rice, Dry Aloo Jeera, Tawa Rotis, Onion Rings & Mint Chutney.",
+      dinner: "Kadai Paneer, Yellow Dal, Phulka with butter, Fragrant Rice & Halwa.",
+      special: "Amritsari Kadhi"
+    },
+    Fri: {
+      lunch: "Dum Aloo Kashmiri, Dal Fry, Fresh Rotis with Butter, Vegetable Pulao, Kachumber Salad & Rasgulla.",
+      dinner: "Egg Curry / Malai Kofta (choice), Mixed Dal, Hot Rotis, Steamed Rice & Sevaiyan.",
+      special: "Egg / Kofta Choice"
+    },
+    Sat: {
+      lunch: "Panchmel Dal, Aloo Shimla Mirch, Multigrain Roti, Brown/White Rice, Cucumber Salad & Papad.",
+      dinner: "Khichdi with Desi Ghee / Pav Bhaji Feast, Roasted Papad, Garlic Chutney & Buttermilk.",
+      special: "Comfort Food Night"
+    },
+    Sun: {
+      lunch: "Grand Sunday Feast: Matar Paneer, Special Dal Makhani, Masala Poori, Gulab Jamun, Veg Pulao & Raita.",
+      dinner: "Light Veg Pulao, Curd, Tomato Soup, Garlic Toast & Ice Cream Cup.",
+      special: "Sunday Grand Feast"
+    }
+  };
+
+  function selectDay(day) {
+    document.querySelectorAll('.day-tab').forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary');
+      tab.classList.add('bg-surface-container', 'text-on-surface-variant');
+    });
+
+    const activeTab = document.getElementById('tab-' + day);
+    if (activeTab) {
+      activeTab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      activeTab.classList.add('bg-primary', 'text-on-primary');
+    }
+
+    const data = weeklySchedule[day] || weeklySchedule.Mon;
+    const lunchEl = document.getElementById('lunchMenuText');
+    const dinnerEl = document.getElementById('dinnerMenuText');
+    if (lunchEl && dinnerEl) {
+      lunchEl.textContent = data.lunch;
+      dinnerEl.textContent = data.dinner;
+    }
+  }
+
+  function selectPlan(type, price, name) {
+    currentSelectedPlan = {
+      type: type,
+      name: name,
+      price: price,
+      duration: type === 'weekly' ? ' / 7 days' : (type === 'semester' ? ' / 90 days' : ' / mo')
+    };
+
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.classList.remove('ring-2', 'ring-primary');
+    });
+
+    event.currentTarget.classList.add('ring-2', 'ring-primary');
+
+    const priceEl = document.getElementById('bottomPriceTag');
+    const durationEl = document.getElementById('bottomDurationTag');
+    const planNameEl = document.getElementById('bottomPlanName');
+
+    if (priceEl) priceEl.textContent = '₹' + price.toLocaleString('en-IN');
+    if (durationEl) durationEl.textContent = currentSelectedPlan.duration;
+    if (planNameEl) planNameEl.textContent = name;
+  }
+
+  function toggleBookmark() {
+    isBookmarked = !isBookmarked;
+    const heartIcon = document.getElementById('heartIcon');
+    if (heartIcon) {
+      if (isBookmarked) {
+        heartIcon.textContent = 'favorite';
+        heartIcon.style.fontVariationSettings = "'FILL' 1";
+        heartIcon.classList.add('text-error');
+      } else {
+        heartIcon.textContent = 'favorite_border';
+        heartIcon.style.fontVariationSettings = "'FILL' 0";
+        heartIcon.classList.remove('text-error');
+      }
+    }
+  }
+
+  function scrollToMap() {
+    const mapAnchor = document.getElementById('locationAnchor');
+    if (mapAnchor) {
+      mapAnchor.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function handleSubscribeCTA() {
+    alert(`Great choice! Proceeding to checkout for ${currentSelectedPlan.name} (₹${currentSelectedPlan.price}). Mess trial passes and meal cards will be activated instantly.`);
+  }
+</script></main></body></html>

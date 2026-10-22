@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <meta content="mobile_tab" name="shell-type"/>
+  <title>MessMate — Discover Nearby Messes & Meal Subscriptions</title>
+  <meta name="theme-color" content="#1a5740"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="MessMate"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <link rel="apple-touch-icon" href="https://lh3.googleusercontent.com/aida-public/AB6AXuBS-657N_kUkHhyrZIdB9IdXcyYdXR04WgDTunCZw4PidwUGZqYV3DxuDPEAyj8zbmj4tGHffsHkWWFmAKdXEDMLlizuPMn7yLOfK8RypTJSDZ8I2HoEhPj9_C-JOz2s-M4qFxN1xaGRgA2bPyR0_dRlsTCM-Ub97B9GQ-CNgRXA1Bi7LV0X_XO1rbkqDlbHYIe-4onyxrk2AYEXreTGTVhdcyq1H-YSiC_zlXAT-j-UQwAXSLAsoEq"/>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#003f2b",
+            "primary-container": "#1a5740",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#8fcbae",
+            "primary-fixed": "#b2f0d1",
+            "primary-fixed-dim": "#97d3b6",
+            "on-primary-fixed": "#002115",
+            "on-primary-fixed-variant": "#11503a",
+            "secondary": "#546431",
+            "secondary-container": "#d4e8a7",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#586934",
+            "secondary-fixed": "#d6eaa9",
+            "secondary-fixed-dim": "#bbce8f",
+            "on-secondary-fixed": "#141f00",
+            "on-secondary-fixed-variant": "#3c4c1b",
+            "tertiary": "#632000",
+            "tertiary-container": "#893000",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#ffaa87",
+            "tertiary-fixed": "#ffdbce",
+            "tertiary-fixed-dim": "#ffb598",
+            "on-tertiary-fixed": "#370e00",
+            "on-tertiary-fixed-variant": "#7f2b00",
+            "surface": "#f1fcf4",
+            "surface-dim": "#d1ddd5",
+            "surface-bright": "#f1fcf4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#ebf6ee",
+            "surface-container": "#e5f1e9",
+            "surface-container-high": "#e0ebe3",
+            "surface-container-highest": "#dae5dd",
+            "on-surface": "#141e19",
+            "on-surface-variant": "#404943",
+            "outline": "#707973",
+            "outline-variant": "#bfc9c2",
+            "inverse-surface": "#28332d",
+            "inverse-on-surface": "#e8f4eb",
+            "inverse-primary": "#97d3b6",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a"
+          },
+          fontFamily: {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          spacing: {
+            "margin": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin-lg": "2rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.25rem",
+            "space-xl": "1.5rem"
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="/styles.css"/>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen">
+
+  <!-- Top Sticky Header -->
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 px-margin flex items-center justify-between gap-space-sm">
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-space-xs shrink-0 cursor-pointer" onclick="navigateTo('home')">
+        <img alt="MessMate Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS-657N_kUkHhyrZIdB9IdXcyYdXR04WgDTunCZw4PidwUGZqYV3DxuDPEAyj8zbmj4tGHffsHkWWFmAKdXEDMLlizuPMn7yLOfK8RypTJSDZ8I2HoEhPj9_C-JOz2s-M4qFxN1xaGRgA2bPyR0_dRlsTCM-Ub97B9GQ-CNgRXA1Bi7LV0X_XO1rbkqDlbHYIe-4onyxrk2AYEXreTGTVhdcyq1H-YSiC_zlXAT-j-UQwAXSLAsoEq"/>
+        <span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MessMate</span>
+      </div>
+
+      <!-- Campus Area Dropdown Pill -->
+      <button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high transition-colors max-w-[160px] min-h-[44px]" onclick="openLocationPickerModal()">
+        <span class="material-symbols-outlined text-[18px] text-primary shrink-0">location_on</span>
+        <div class="flex flex-col items-start truncate">
+          <span class="font-label-sm text-[10px] uppercase text-outline leading-tight">Campus Area</span>
+          <span id="header-campus-label" class="font-label-md text-label-md text-on-surface truncate leading-tight font-semibold">North Campus</span>
+        </div>
+        <span class="material-symbols-outlined text-[16px] text-on-surface-variant shrink-0">keyboard_arrow_down</span>
+      </button>
+
+      <!-- Right Actions: Role Mode, Notifications, Avatar -->
+      <div class="flex items-center gap-space-xs shrink-0">
+        <span id="header-role-badge" class="font-label-sm text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed">
+          Student Mode
+        </span>
+        <button aria-label="Notifications" class="relative w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container transition-colors" onclick="showToast('No new notifications right now')">
+          <span class="material-symbols-outlined text-[22px]">notifications</span>
+          <span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-tertiary-container"></span>
+        </button>
+        <button id="header-profile-btn" class="w-10 h-10 flex items-center justify-center rounded-full overflow-hidden hover:ring-2 hover:ring-primary transition-all">
+          <img id="header-profile-avatar" alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbaJ7I5OqiTs1_g7YwUUmCGSiFSZrWFUt_pz0mrjt81rTiaa4mcVB7kD7b47XLHBnwC2j6TGlVybt2XEEQXyGaU7sBL_N3b3TOdFAPl1WO0xv5kzSg3eJ67RQwgsLLIEfTUUtjZG2-nniQRC2KuvEDKHulcYtqs-DDXj_Tk8usmoxauIM7H2aoYl0z6c7YPXfhQTxtvkYQuVr7ouztsLm4mir8IJn48FZIXIDCndRhZlOtJQNw1KI1"/>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Application Body Shell -->
+  <main id="main-content" class="flex flex-col relative w-full pt-16 pb-20 bg-surface min-h-screen">
+    <!-- Screen content dynamically mounted here by app.js -->
+  </main>
+
+  <!-- Fixed Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 w-full z-40 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_-2px_rgba(18,61,46,0.08)]">
+    <div class="flex justify-around items-center h-16 px-space-xs">
+      <button class="nav-item flex flex-col items-center justify-center flex-1 h-full min-h-[44px] transition-all gap-0.5 text-primary-container font-bold" data-path="home" onclick="navigateTo('home')">
+        <div class="nav-icon-container flex items-center justify-center w-12 h-7 rounded-full transition-all bg-secondary-container text-on-secondary-fixed scale-105">
+          <span class="material-symbols-outlined text-[20px]">restaurant</span>
+        </div>
+        <span class="font-label-sm text-label-sm">Home</span>
+      </button>
+
+      <button class="nav-item flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="explore" onclick="navigateTo('explore')">
+        <div class="nav-icon-container flex items-center justify-center w-12 h-7 rounded-full transition-all">
+          <span class="material-symbols-outlined text-[20px]">explore</span>
+        </div>
+        <span class="font-label-sm text-label-sm">Explore</span>
+      </button>
+
+      <button class="nav-item flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="saved" onclick="navigateTo('saved')">
+        <div class="nav-icon-container flex items-center justify-center w-12 h-7 rounded-full transition-all">
+          <span class="material-symbols-outlined text-[20px]">bookmark</span>
+        </div>
+        <span class="font-label-sm text-label-sm">Saved</span>
+      </button>
+
+      <button class="nav-item flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="my-plans" onclick="navigateTo('my-plans')">
+        <div class="nav-icon-container flex items-center justify-center w-12 h-7 rounded-full transition-all">
+          <span class="material-symbols-outlined text-[20px]">badge</span>
+        </div>
+        <span class="font-label-sm text-label-sm">My Plans</span>
+      </button>
+
+      <button class="nav-item flex flex-col items-center justify-center flex-1 h-full min-h-[44px] text-on-surface-variant hover:text-on-surface transition-all gap-0.5" data-path="profile" onclick="navigateTo('profile')">
+        <div class="nav-icon-container flex items-center justify-center w-12 h-7 rounded-full transition-all">
+          <span class="material-symbols-outlined text-[20px]">person</span>
+        </div>
+        <span class="font-label-sm text-label-sm">Profile</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Global Action Modal Drawer System -->
+  <div id="app-modal-backdrop" class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none" onclick="hideModal()"></div>
+  <div id="app-modal" role="dialog" aria-modal="true" class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest rounded-t-3xl shadow-2xl flex flex-col max-h-[85vh] transition-transform duration-300 ease-out transform translate-y-full max-w-lg mx-auto">
+    <div class="pt-3 pb-2 px-margin flex flex-col items-center">
+      <div class="w-12 h-1.5 rounded-full bg-surface-container-highest mb-3"></div>
+      <div class="flex items-center justify-between w-full">
+        <h3 id="modal-title" class="font-headline-sm text-headline-sm text-on-surface font-bold">Action</h3>
+        <button aria-label="Close" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="hideModal()">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+    <div id="modal-body" class="flex-1 overflow-y-auto px-margin py-3 text-on-surface"></div>
+    <div class="p-margin bg-surface-container-lowest border-t border-surface-container-low shadow-sm flex items-center gap-3">
+      <button id="modal-confirm-btn" class="flex-1 py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow hover:bg-primary-container active:scale-[0.98] transition-all">
+        Confirm
+      </button>
+    </div>
+  </div>
+
+  <!-- Explore Bottom Sheet Filter Drawer (Preserved from Stitch) -->
+  <div id="filter-drawer-backdrop" class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-xs transition-opacity duration-300 opacity-0 pointer-events-none" onclick="closeFilterDrawer()"></div>
+  <div id="filter-drawer" role="dialog" aria-modal="true" class="fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest rounded-t-2xl shadow-xl flex flex-col max-h-[85vh] transition-transform duration-300 ease-out transform translate-y-full max-w-lg mx-auto">
+    <div class="pt-3 pb-2 px-margin flex flex-col items-center">
+      <div class="w-12 h-1.5 rounded-full bg-surface-container-highest mb-3"></div>
+      <div class="flex items-center justify-between w-full">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+          <h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Student Filters</h2>
+        </div>
+        <button aria-label="Close filters drawer" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" onclick="closeFilterDrawer()" type="button">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Scrollable Filter Groups -->
+    <div class="flex-1 overflow-y-auto px-margin py-3 flex flex-col gap-5 text-on-surface">
+      <!-- 1. Food Preference -->
+      <section class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="font-label-lg text-label-lg font-bold text-on-surface">Food Preference</span>
+          <span class="font-label-sm text-label-sm text-primary font-semibold">Dietary Rules</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-on-surface cursor-pointer select-none">
+            <span class="font-body-md text-body-md font-semibold flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+              Vegetarian
+            </span>
+            <input id="drawer-filter-veg" class="w-4 h-4 rounded text-primary accent-primary" type="checkbox" onchange="state.filters.is_pure_veg = this.checked">
+          </label>
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-on-surface cursor-pointer select-none">
+            <span class="font-body-md text-body-md font-medium flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span>
+              Non-Veg
+            </span>
+            <input id="drawer-filter-nonveg" class="w-4 h-4 rounded accent-primary" type="checkbox" onchange="state.filters.has_non_veg = this.checked">
+          </label>
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-on-surface cursor-pointer select-none">
+            <span class="font-body-md text-body-md font-medium flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-secondary">spa</span>
+              Jain Food
+            </span>
+            <input id="drawer-filter-jain" class="w-4 h-4 rounded accent-primary" type="checkbox" onchange="state.filters.is_jain = this.checked">
+          </label>
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-on-surface cursor-pointer select-none">
+            <span class="font-body-md text-body-md font-medium flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px] text-secondary">eco</span>
+              Vegan
+            </span>
+            <input id="drawer-filter-vegan" class="w-4 h-4 rounded accent-primary" type="checkbox" onchange="state.filters.is_vegan = this.checked">
+          </label>
+        </div>
+      </section>
+
+      <!-- 2. Price Range (Monthly Budget) -->
+      <section class="flex flex-col gap-2">
+        <span class="font-label-lg text-label-lg font-bold text-on-surface">Monthly Mess Budget</span>
+        <div class="grid grid-cols-2 gap-2">
+          <button class="py-2.5 px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md text-left flex items-center justify-between" type="button" onclick="state.filters.max_price = 1000; applyDrawerFilters();">
+            <span>Under ₹1,000</span>
+          </button>
+          <button class="py-2.5 px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md text-left flex items-center justify-between" type="button" onclick="state.filters.max_price = 1500; applyDrawerFilters();">
+            <span>₹1,000 – ₹1,500</span>
+          </button>
+          <button class="py-2.5 px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md text-left flex items-center justify-between" type="button" onclick="state.filters.max_price = 2000; applyDrawerFilters();">
+            <span>₹1,500 – ₹2,000</span>
+          </button>
+          <button class="py-2.5 px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md text-left flex items-center justify-between" type="button" onclick="state.filters.max_price = 3000; applyDrawerFilters();">
+            <span>All Budgets</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3. High Protein & Amenities -->
+      <section class="flex flex-col gap-2 pb-2">
+        <span class="font-label-lg text-label-lg font-bold text-on-surface">Campus Priorities</span>
+        <div class="flex flex-col gap-2">
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low cursor-pointer">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">fitness_center</span>
+              <div>
+                <p class="font-body-md text-body-md font-semibold leading-tight">High Protein Options</p>
+                <p class="font-label-sm text-[11px] text-outline">Sprouts, paneer & boiled eggs</p>
+              </div>
+            </div>
+            <input class="w-4 h-4 rounded accent-primary" type="checkbox" onchange="state.filters.has_high_protein = this.checked">
+          </label>
+          <label class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low cursor-pointer">
+            <div class="flex items-center gap-2.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">water_drop</span>
+              <div>
+                <p class="font-body-md text-body-md font-semibold leading-tight">Pure RO Mineral Water</p>
+                <p class="font-label-sm text-[11px] text-outline">Certified water filtration</p>
+              </div>
+            </div>
+            <input checked class="w-4 h-4 rounded accent-primary" type="checkbox">
+          </label>
+        </div>
+      </section>
+    </div>
+
+    <!-- Persistent Modal Actions Bar -->
+    <div class="p-margin bg-surface-container-lowest shadow-[0_-4px_16px_rgba(0,0,0,0.05)] flex items-center gap-3">
+      <button class="px-4 py-3 rounded-full text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg font-semibold transition-colors" onclick="clearAllFilters(); closeFilterDrawer();" type="button">
+        Clear All
+      </button>
+      <button class="flex-1 py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow hover:bg-primary-container active:scale-[0.98] transition-all" onclick="applyDrawerFilters()" type="button">
+        <span>Apply Filters</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Pill -->
+  <div id="global-toast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-lg font-label-md text-label-md flex items-center gap-2 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none max-w-sm text-center">
+    <span class="material-symbols-outlined text-[18px] text-secondary-container">info</span>
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script src="/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registered with scope:', reg.scope))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+
+    // Capture install prompt for Android PWA
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      const installPill = document.getElementById('pwa-install-banner');
+      if (installPill) installPill.classList.remove('hidden');
+    });
+
+    function triggerPwaInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the PWA install prompt');
+          }
+          deferredPrompt = null;
+          const installPill = document.getElementById('pwa-install-banner');
+          if (installPill) installPill.classList.add('hidden');
+        });
+      }
+    }
+  </script>
+</body>
+</html>
